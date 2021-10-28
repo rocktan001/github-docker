@@ -1,13 +1,13 @@
 ######################################################################################################
 ##
-# openharmony-docker:0.0.3 
-# 参考 https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/get-code/%E8%8E%B7%E5%8F%96%E5%B7%A5%E5%85%B7.md
+# openharmony-docker-standard:0.0.4 
+# 参考 https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-docker-environment.md
 # git clone https://gitee.com/openharmony/docs.git
-# cd docs/docker
+# cd docs/docker/standard
 # /build.sh
 ##
 ######################################################################################################
-FROM openharmony-docker:0.0.3
+FROM openharmony-docker-standard:0.0.4
 #作者
 MAINTAINER ROCK
 #更新源
@@ -26,8 +26,17 @@ RUN mkdir -p /var/log/supervisor
 
 ADD etc/supervisord.conf /etc/supervisord.conf
 
-RUN apt-get -y install curl apt-utils  net-tools iputils-ping 
+RUN apt-get -y install curl apt-utils  net-tools iputils-ping  git-lfs  python3-pip
 
+#安装repo
+RUN curl -s https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 > /usr/local/bin/repo \
+	&& chmod a+x /usr/local/bin/repo && pip3 install -i https://repo.huaweicloud.com/repository/pypi/simple requests
+
+#拷贝ssh 鉴权文件
+ADD etc/.ssh/id_rsa /root/.ssh/id_rsa
+ADD etc/.ssh/id_rsa.pub /root/.ssh/id_rsa.pub
+RUN chmod 644 /root/.ssh/id_rsa.pub
+RUN chmod 400 /root/.ssh/id_rsa
 #清理 apt
 RUN apt-get -y autoremove && apt-get clean
 
