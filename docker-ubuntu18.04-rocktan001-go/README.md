@@ -22,5 +22,5 @@ $ docker run -tid --name docker-ubuntu18.04-rocktan001 -v /media/disk2:/media/di
 #### run a container with new User and Password
 
 ```
-$ docker run  -tid --name docker-ubuntu18.04-rocktan001-go -e ROOT_PWD=root -e ROCK_USER_PWD=rock -v /media/disk2:/media/disk2 --privileged -p 8893:22  rocktan001/docker-ubuntu18.04-rocktan001-go:v1.0
+$ docker run  -tid --name docker-ubuntu18.04-rocktan001-go --restart always -e ROOT_PWD=root -e ROCK_USER_PWD=rock -v /media/disk2/go_workspace:/media/disk2/go_workspace --privileged -p 2222:2222 -p 8893:22  rocktan001/docker-ubuntu18.04-rocktan001-go:v1.0
 ```
