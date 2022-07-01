@@ -21,6 +21,12 @@ if [ -n "$SSH_PORT" ]; then
 
 fi
 
+if [ -n "$YSEMI_USER" ]; then
+	useradd -m -s /bin/bash $YSEMI_USER
+	echo "$YSEMI_USER:$YSEMI_USER" | chpasswd
+
+fi
+
 echo "[i] Setting end,have fun."
 
 exec "$@"
