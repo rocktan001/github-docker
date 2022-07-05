@@ -108,6 +108,8 @@ ADD etc/supervisord.conf /etc/supervisord.conf
 
 RUN apt-get -y install curl apt-utils  net-tools iputils-ping
 
+RUN apt install tsocks -y
+RUN apt-get -y install gcc-aarch64-linux-gnu qemu-system-aarch64
 #清理 apt
 RUN apt-get -y autoremove && apt-get clean
 
@@ -121,6 +123,7 @@ COPY etc/startup.sh /root/startup.sh
 RUN chmod +x /root/startup.sh
 
 COPY etc/sshd_config /etc/ssh/sshd_config
+COPY etc/tsocks.conf /etc/tsocks.conf
 
 RUN  echo "export LANG=C.UTF-8" >> /etc/bash.bashrc
 #开放端口
