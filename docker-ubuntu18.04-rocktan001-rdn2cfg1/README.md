@@ -11,8 +11,8 @@ Docker + Ubuntu-18.04 + openssh-server + RDN2
 
 
 ```
-docker build -t="rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v2.0" .
-docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10065 -e SSH_PORT=10065 -e ROOT_PWD=root -e YSEMI_USER=10065  --privileged --net host --restart always  -v /media/disk2/:/media/disk2/  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v2.0
+docker build -t="rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v3.0" .
+docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10065 -e SSH_PORT=10065 -e ROOT_PWD=root -e YSEMI_USER=10065  --privileged --net host --restart always  -v /media/disk2/:/media/disk2/  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v3.0
 ```
 
 

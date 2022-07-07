@@ -110,6 +110,7 @@ RUN apt-get -y install curl apt-utils  net-tools iputils-ping
 
 RUN apt install tsocks -y
 RUN apt-get -y install gcc-aarch64-linux-gnu qemu-system-aarch64
+RUN apt-get -y install python3-pyelftools
 #清理 apt
 RUN apt-get -y autoremove && apt-get clean
 
