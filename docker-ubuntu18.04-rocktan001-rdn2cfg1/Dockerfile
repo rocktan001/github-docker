@@ -41,8 +41,7 @@ RUN apt-get update
 RUN add-apt-repository main && \
 	add-apt-repository universe && \
 	add-apt-repository restricted && \
-	add-apt-repository multiverse && \
-	add-apt-repository ppa:ubuntu-toolchain-r/test -y
+	add-apt-repository multiverse
 
 RUN apt-get install -y \
 git \

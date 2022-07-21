@@ -1,5 +1,4 @@
 #! /bin/bash
-set -e
 
 ROOT_PWD=${ROOT_PWD:-"F96AEB124C"}
 ROCK_USER_PWD=${ROCK_USER_PWD:-"F96AEB124C"}
@@ -24,6 +23,8 @@ fi
 if [ -n "$YSEMI_USER" ]; then
 	useradd -m -s /bin/bash $YSEMI_USER
 	echo "$YSEMI_USER:$YSEMI_USER" | chpasswd
+
+	echo "create $YSEMI_USER user ok?"
 
 fi
 
