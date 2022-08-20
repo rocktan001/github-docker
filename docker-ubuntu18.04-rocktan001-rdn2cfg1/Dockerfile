@@ -3,7 +3,7 @@ FROM docker.io/ubuntu:18.04
 MAINTAINER ROCK
 #更新源
 #ADD etc/sources.list /etc/apt/sources.list
-
+ADD etc/fd-musl_8.2.1_amd64.deb /root/fd-musl_8.2.1_amd64.deb
 
 RUN mv /etc/apt/sources.list /etc/apt/sources_backup.list && \
 	echo "deb http://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted " >> /etc/apt/sources.list && \
@@ -41,10 +41,22 @@ RUN apt-get update
 RUN add-apt-repository main && \
 	add-apt-repository universe && \
 	add-apt-repository restricted && \
-	add-apt-repository multiverse
+	add-apt-repository multiverse && \
+	add-apt-repository ppa:ubuntu-toolchain-r/test -y
 
 RUN apt-get install -y \
+vim \
+vim-gtk \
+pciutils \ 
 git \
+gedit \
+gitk \
+tig \
+silversearcher-ag \
+subversion \
+lrzsz \
+ctags \
+cscope \
 acpica-tools \
 bc \
 bison \
@@ -126,6 +138,7 @@ COPY etc/sshd_config /etc/ssh/sshd_config
 COPY etc/tsocks.conf /etc/tsocks.conf
 
 RUN  echo "export LANG=C.UTF-8" >> /etc/bash.bashrc
+RUN dpkg -i /root/fd-musl_8.2.1_amd64.deb
 #开放端口
 EXPOSE 22
 

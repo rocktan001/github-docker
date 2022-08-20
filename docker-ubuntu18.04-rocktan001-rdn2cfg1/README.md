@@ -11,8 +11,8 @@ Docker + Ubuntu-18.04 + openssh-server + RDN2
 
 
 ```
-docker build -t="rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v4.0" .
-docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10065 -e SSH_PORT=10065 -e ROOT_PWD=root -e YSEMI_USER=10065  --privileged --net host --restart always  -v /media/disk2/:/media/disk2/  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v3.0
+docker build -t="rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v5.0" .
+docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10065 -e SSH_PORT=10065 -e ROOT_PWD=root -e YSEMI_USER=10065  --privileged --net host --restart always  -v /media/disk2/:/media/disk2/ -v /media/disk3/:/media/disk3/ rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v5.0
 
 #window
 docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10065 -e SSH_PORT=10065 -e ROOT_PWD=root -e YSEMI_USER=10065  --privileged --net host --restart always  -v Z:\:/media/disk2/  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v3.0
@@ -26,4 +26,15 @@ docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10065 -e SSH_PORT=
 docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10054 -e SSH_PORT=10054 -e ROOT_PWD=root -e YSEMI_USER=10054  --privileged --net host --restart always  -v /home/server/rocktan001/10054:/media/disk2/10054  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v3.0
 docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10065 -e SSH_PORT=10065 -e ROOT_PWD=root -e YSEMI_USER=10065  --privileged --net host --restart always  -v /home/server/rocktan001/10065:/media/disk2/10065  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v3.0
 
-docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10066 -e SSH_PORT=10066 -e ROOT_PWD=root -e YSEMI_USER=10066  --privileged --net host --restart always  -v /home/server/rocktan001/10066:/media/disk2/10066  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v1.0
+docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10059 -e SSH_PORT=10059 -e ROOT_PWD=root -e YSEMI_USER=10059  --privileged --net host --restart always  -v /home/server/rocktan001/10059:/media/disk2/10059  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v1.0
+
+
+### docker daemon 启用用户隔离
+```bash
+root@rocktan001:/media/disk3/docker_namespace# cat /etc/docker/daemon.json 
+{
+          "userns-remap": "default"
+}
+
+docker run -tid --name docker-ubuntu18.04-rocktan001_rdn2cfg1_10059 -e SSH_PORT=10059 -e ROOT_PWD=root -e YSEMI_USER=10059  --device /dev/fuse --cap-add SYS_ADMIN --security-opt apparmor:unconfined  --restart always -p 10059:10059  -v /media/disk3/:/media/disk3/ -v /media/disk2/:/media/disk2/  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v5.0
+```

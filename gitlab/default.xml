@@ -1,0 +1,41 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="aosp"
+           fetch=".."/>
+  <default revision="master"
+           remote="aosp"
+           sync-j="4" />
+  <project path="docs" name="docs" />
+  <project path="software" name="software" />
+  <project path="build-scripts" name="build-scripts" />
+  <project path="scp" name="scp" />
+  <project path="scp/contrib/cmsis/git" name="scp/contrib/cmsis/git" />
+  <project path="scp/contrib/run-clang-format/git" name="scp/contrib/run-clang-format/git" />
+  <project path="busybox" name="busybox" />
+  <project path="mbedtls" name="mbedtls" />
+  <project path="model-scripts" name="model-scripts" />
+  <project path="grub" name="grub" />
+  <project path="kvmtool" name="kvmtool" />
+  <project path="arm-tf" name="arm-tf" />
+  <project path="manifests" name="manifests" />
+  <project path="tools/efitools" name="tools/efitools" />
+  <project path="tools/acpica" name="tools/acpica" />
+  <project path="linux" name="linux" />
+  <project path="buildroot" name="buildroot" />
+  <project path="kvm-unit-tests" name="kvm-unit-tests" />
+  <project path="uefi/edk2" name="uefi/edk2" />
+  <project path="uefi/edk2/edk2-platforms" name="uefi/edk2/edk2-platforms" />
+  <project path="uefi/edk2/edk2-platforms/Silicon/RISC-V/ProcessorPkg/Library/RiscVOpensbiLib/opensbi" name="uefi/edk2/edk2-platforms/Silicon/RISC-V/ProcessorPkg/Library/RiscVOpensbiLib/opensbi" />
+  <project path="uefi/edk2/ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3" name="uefi/edk2/ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3" />
+  <project path="uefi/edk2/UnitTestFrameworkPkg/Library/CmockaLib/cmocka" name="uefi/edk2/UnitTestFrameworkPkg/Library/CmockaLib/cmocka" />
+  <project path="uefi/edk2/RedfishPkg/Library/JsonLib/jansson" name="uefi/edk2/RedfishPkg/Library/JsonLib/jansson" />
+  <project path="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl" name="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl" />
+  <project path="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl/krb5" name="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl/krb5" />
+  <project path="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl/boringssl" name="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl/boringssl" />
+  <project path="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography" name="uefi/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography" />
+  <project path="uefi/edk2/MdeModulePkg/Universal/RegularExpressionDxe/oniguruma" name="uefi/edk2/MdeModulePkg/Universal/RegularExpressionDxe/oniguruma" />
+  <project path="uefi/edk2/MdeModulePkg/Library/BrotliCustomDecompressLib/brotli" name="uefi/edk2/MdeModulePkg/Library/BrotliCustomDecompressLib/brotli" />
+  <project path="uefi/edk2/BaseTools/Source/C/BrotliCompress/brotli" name="uefi/edk2/BaseTools/Source/C/BrotliCompress/brotli" />
+
+</manifest>
