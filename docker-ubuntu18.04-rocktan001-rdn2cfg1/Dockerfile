@@ -103,7 +103,7 @@ sbsigntool \
 pkg-config \
 gdisk
 
-
+RUN  pip install --upgrade pip
 RUN pip install cmake --upgrade -i "https://pypi.doubanio.com/simple/"
 
 #安装openssh
