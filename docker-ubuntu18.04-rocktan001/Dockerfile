@@ -31,6 +31,7 @@ RUN echo "rock:F96AEB124C" | chpasswd
 COPY etc/startup.sh /root/startup.sh
 RUN chmod +x /root/startup.sh
 
+COPY etc/sshd_config /etc/ssh/sshd_config
 
 RUN  echo "export LANG=C.UTF-8" >> /etc/bash.bashrc
 #开放端口

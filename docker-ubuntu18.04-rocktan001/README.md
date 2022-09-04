@@ -8,19 +8,32 @@ Docker + Ubuntu-18.04 + openssh-server
 
 #### build image
 
-```
-$ docker build -t="rocktan001/docker-ubuntu18.04-rocktan001:v1.0" .
-```
-
-#### run a default contaier
-
-```
-$ docker run -tid --name docker-ubuntu18.04-rocktan001 -v /media/disk2:/media/disk2 -p 8891:22 rocktan001/docker-ubuntu18.04-rocktan001:v1.0
-```
+```bash
+docker build -t="rocktan001/docker-ubuntu18.04-rocktan001:v2.0" .
 
 
-#### run a container with new User and Password
+## 直接配置ssh 端口，并分配10060 用户
+docker run -tid --name docker-ubuntu18.04-rocktan001_10060 \
+-e SSH_PORT=10060 \
+-e ROOT_PWD=root \
+-e YSEMI_USER=10060 \
+-p 10060:10060 \
+--restart always \
+-v /media/disk3/:/media/disk3/ \
+-v /media/disk2/:/media/disk2/ \
+rocktan001/docker-ubuntu18.04-rocktan001:v2.0
+
+
+## 重新配置rock用户密码
+docker run -tid --name docker-ubuntu18.04-rocktan001_10061 \
+-e SSH_PORT=10061 \
+-p 10061:10061 \
+-e ROOT_PWD=root \
+-e ROCK_USER_PWD=F96AEB124CXIAOQIANG4423 \
+--restart always \
+-v /media/disk3/:/media/disk3/ \
+-v /media/disk2/:/media/disk2/ \
+rocktan001/docker-ubuntu18.04-rocktan001:v2.0
 
 ```
-$ docker run -tid --name docker-ubuntu18.04-rocktan001 -e ROOT_PWD=root -e ROCK_USER_PWD=rock -v /media/disk2:/media/disk2 -p 8891:22  rocktan001/docker-ubuntu18.04-rocktan001:v1.0
-```
+
