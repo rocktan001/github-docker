@@ -60,3 +60,7 @@ gitlab/gitlab-ce:latest
 
 sudo docker run -tid --name rdn2cfg1_10059 -e SSH_PORT=10059 -e ROOT_PWD=root -e YSEMI_USER=10059  --device /dev/fuse --cap-add SYS_ADMIN --security-opt apparmor:unconfined  --restart always -p 10059:10059 --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw"  -v /home/server/rocktan001/docker_share:/home/10059/docker_share -v /home/server/rocktan001/10059:/home/10059  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v6.0
 ```
+
+```text
+docker run -tid --name rdn2cfg1_10059 -e SSH_PORT=10059 -e ROOT_PWD=root -e YSEMI_USER=10059  --privileged --net host  --restart always -p 10059:10059 -v /media/disk1:/media/disk1 -v /media/disk3/:/media/disk3/ -v /media/disk2/:/media/disk2/ --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw"  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v6.0
+```

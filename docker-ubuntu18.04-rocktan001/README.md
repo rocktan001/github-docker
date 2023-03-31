@@ -37,3 +37,16 @@ rocktan001/docker-ubuntu18.04-rocktan001:v2.0
 
 ```
 
+```text
+# www.rocktan001.com YSEMI 配置
+docker run -tid --name docker-ubuntu18.04-rocktan001_64000 \
+-e SSH_PORT=64000 \
+-e ROOT_PWD=root  \
+-e ROCK_USER_PWD=F96AEB124C \
+-p 64000:64000 \
+--restart always \
+-v /home/ysemi/:/home/ysemi \
+-v  /mnt/disk2/:/home/ysemi/disk2 \
+rocktan001/docker-ubuntu18.04-rocktan001:v2.0
+```
+
