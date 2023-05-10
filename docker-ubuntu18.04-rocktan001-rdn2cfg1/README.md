@@ -63,4 +63,5 @@ sudo docker run -tid --name rdn2cfg1_10059 -e SSH_PORT=10059 -e ROOT_PWD=root -e
 
 ```text
 docker run -tid --name rdn2cfg1_10059 -e SSH_PORT=10059 -e ROOT_PWD=root -e YSEMI_USER=10059  --privileged --net host  --restart always -p 10059:10059 -v /media/disk1:/media/disk1 -v /media/disk3/:/media/disk3/ -v /media/disk2/:/media/disk2/ --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw"  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v6.0
+docker run -tid --name rdn2cfg1_10059 -e SSH_PORT=10059 -e ROOT_PWD=root -e YSEMI_USER=rock  --privileged --net host  --restart always -p 10059:10059 -v /media/disk1:/media/disk1 -v /media/disk3/:/media/disk3/ -v /media/disk2/:/media/disk2/ --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw"  rocktan001/docker-ubuntu18.04-rocktan001_rdn2cfg1:v6.0
 ```

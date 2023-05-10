@@ -36,7 +36,10 @@ function create_ceph_osd()
 		mount ceph3.xfs /mnt/ceph3
 		chown ceph:ceph /mnt/ceph1 
 		chown ceph:ceph /mnt/ceph2
-		chown ceph:ceph /mnt/ceph3
+		chown ceph:ceph /mnt/ceph3 
+		chmod 777 /mnt/ceph1
+		chmod 777 /mnt/ceph2
+		chmod 777 /mnt/ceph3
 
 	popd
 }
@@ -89,6 +92,6 @@ function create_ceph_network()
 	docker network create --subnet=10.10.0.0/24  cluster-net
 }
 
-# create_ceph_network
-# create_ceph_osd
+create_ceph_network
+create_ceph_osd
 create_ceph_docker

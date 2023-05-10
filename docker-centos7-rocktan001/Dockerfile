@@ -21,6 +21,15 @@ RUN \
 	mtr \
 	supervisor \
 	openssh-server \
+	dnf \
+	make \
+	flex \
+	gcc \
+	bison \
+	openssl-devel \
+	wget \
+	git \
+	bc \
 	vim && \
 	yum clean all && rm -rf /tmp/yum*
 
