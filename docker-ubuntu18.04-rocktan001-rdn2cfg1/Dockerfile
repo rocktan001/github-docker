@@ -20,7 +20,10 @@ RUN mv /etc/apt/sources.list /etc/apt/sources_backup.list && \
 
 RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+# 使用上海时区
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install tzdata
 
 RUN apt-get install -y \
     git \

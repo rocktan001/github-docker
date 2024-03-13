@@ -4,9 +4,13 @@ MAINTAINER ROCK
 #更新源
 #ADD etc/sources.list /etc/apt/sources.list
 
+
 RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+# 使用上海时区
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install tzdata
 RUN apt-get -y install systemd
 RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
   /etc/systemd/system/*.wants/* \
@@ -18,6 +22,8 @@ RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
 
 
 RUN apt-get -y install ceph-deploy
+#安装ntpdate 同步客户端时间
+RUN apt-get -y install ntpdate
 RUN apt-get -y install sshpass
 #安装openssh
 RUN apt-get -y install openssh-server
