@@ -1,4 +1,4 @@
-Docker + Ubuntu-18.04 + openssh-server + systemd
+Docker + Ubuntu-18.04 + openssh-server +  desktop
 
 #### parameter
 
@@ -11,7 +11,7 @@ Docker + Ubuntu-18.04 + openssh-server + systemd
 
 
 ```text
-docker build -t="rocktan001/docker-ubuntu18.04-rocktan001_systemd:v1.0" .
+docker build -t="rocktan001/docker-ubuntu18.04-rocktan001_desktop:v1.0" .
 ```
 ### 创建
 
@@ -19,11 +19,11 @@ docker build -t="rocktan001/docker-ubuntu18.04-rocktan001_systemd:v1.0" .
 docker run -tid --name rocktan001   \
 --hostname=rocktan001 \
 --restart always \
--e SSH_PORT=10060 \
+-e SSH_PORT=10059 \
 -e ROOT_PWD=root \
--e YSEMI_USER=Y10060 \
--p 10060:10060 \
--p 14001:4000 \
+-e YSEMI_USER=Y10059 \
+-p 10059:10059 \
+-p 14000:4000 \
 --device /dev/fuse --cap-add=SYS_PTRACE --cap-add SYS_ADMIN \
 --shm-size=1024m \
 -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
@@ -34,6 +34,6 @@ docker run -tid --name rocktan001   \
 --mount type=tmpfs,destination=/run \
 --mount type=tmpfs,destination=/run/lock \
 -v /media/disk2/:/media/disk2/ \
-rocktan001/docker-ubuntu18.04-rocktan001_systemd:v1.0
+rocktan001/docker-ubuntu18.04-rocktan001_desktop:v1.0
 ```
 
